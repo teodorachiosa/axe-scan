@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ttsukagoshi/axe-scan.git"
+    "url": "git+https://github.com/teodorachiosa/axe-scan.git"
   },
   "keywords": [
     "a11y",
@@ -33,9 +33,9 @@
   "author": "ttsukagoshi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ttsukagoshi/axe-scan/issues"
+    "url": "https://github.com/teodorachiosa/axe-scan/issues"
   },
-  "homepage": "https://github.com/ttsukagoshi/axe-scan#readme",
+  "homepage": "https://github.com/teodorachiosa/axe-scan#readme",
   "devDependencies": {
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.22.5",
@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "@axe-core/puppeteer": "^4.7.3",
+    "axe-scan": "^2.0.0",
     "commander": "^12.0.0",
     "csv-parse": "^5.4.0",
     "inquirer": "^9.2.7",
