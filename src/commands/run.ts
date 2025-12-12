@@ -4,7 +4,7 @@ import { AxePuppeteer } from '@axe-core/puppeteer';
 import axe from 'axe-core';
 import { parse } from 'csv-parse/sync';
 import fs from 'fs';
-import puppeteer from 'puppeteer';
+import puppeteer, { Browser, Page } from 'puppeteer';
 
 // import { AxeScanError } from '../axe-scan-error';
 import {
@@ -67,7 +67,7 @@ export default async function (options: CommandOption): Promise<void> {
   // Optional switch to output raw axe-core results in JSON
   const raw = options?.raw;
 
-  const browser: puppeteer.Browser = await puppeteer.launch();
+  const browser: Browser = await puppeteer.launch();
 
   let outputText: string = raw ? '' : REPORT_HEADER.join();
   const rawAxeResults: RawAxeResults = {};
@@ -78,7 +78,7 @@ export default async function (options: CommandOption): Promise<void> {
       continue;
     }
 
-    const page: puppeteer.Page = await browser.newPage();
+    const page: Page = await browser.newPage();
     await page.setBypassCSP(true);
     /* Emulate device: left here as a potential option for the future
       await page.emulate(puppeteer.devices['iPhone 8']);

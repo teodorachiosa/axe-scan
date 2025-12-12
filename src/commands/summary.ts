@@ -4,7 +4,7 @@ import { AxePuppeteer } from '@axe-core/puppeteer';
 import axe from 'axe-core';
 import { parse } from 'csv-parse/sync';
 import fs from 'fs';
-import puppeteer from 'puppeteer';
+import puppeteer, { Browser, Page } from 'puppeteer';
 
 // import { AxeScanError } from '../axe-scan-error';
 import {
@@ -185,8 +185,8 @@ export default async function (options: CommandOption): Promise<void> {
   const filePath: string = options?.file
     ? options.file
     : Array.isArray(config.filePath)
-    ? config.filePath.join()
-    : config.filePath;
+      ? config.filePath.join()
+      : config.filePath;
   const urls: string[] = fs
     .readFileSync(filePath /*, { encoding: config.encoding }*/)
     .toString()
@@ -201,12 +201,12 @@ export default async function (options: CommandOption): Promise<void> {
   // Optional page flag
   const outputByPage: boolean = options?.page ? true : false;
 
-  const browser: puppeteer.Browser = await puppeteer.launch();
+  const browser: Browser = await puppeteer.launch();
 
   let outputObj: AllPagesReportSummary = {};
   for (let i = 0; i < urls.length; i++) {
     const url: string = urls[i];
-    const page: puppeteer.Page = await browser.newPage();
+    const page: Page = await browser.newPage();
     await page.setBypassCSP(true);
     /* Emulate device: left here as a potential option for the future
       await page.emulate(puppeteer.devices['iPhone 8']);

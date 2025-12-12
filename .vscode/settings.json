@@ -3,4 +3,9 @@
     "files.eol": "\n",
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#41233D",
+      "titleBar.activeBackground": "#5B3056",
+      "titleBar.activeForeground": "#FCF9FC"
+    },
   }
